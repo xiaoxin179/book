@@ -31,14 +31,11 @@ public class StaffDao {
 
     public String updateStaff(Staff staff) throws SQLException {
         Connection connection = DbUtils2.getConn();
-        String sql = "update staff set staff_isdelete=? , staff_name=? , password=? , staff_username=? where staff_id=?";
+        String sql = "update staff set  staff_name=? , password=?  where staff_id=?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, staff.getStaff_isdelete());
-        statement.setString(2, staff.getStaff_name());
-//        statement.setString(3, staff.getRole());
-        statement.setString(3, staff.getPassword());
-        statement.setString(4, staff.getStaff_username());
-        statement.setInt(5, staff.getStaff_id());
+        statement.setString(1, staff.getStaff_name());
+        statement.setString(2, staff.getPassword());
+        statement.setInt(3, staff.getStaff_id());
         int res = statement.executeUpdate();
         System.out.println("修改用户信息updateStaff时候的sql："+statement.toString());
         connection.close();

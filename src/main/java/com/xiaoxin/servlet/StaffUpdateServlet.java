@@ -24,8 +24,7 @@ public class StaffUpdateServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessions = request.getSession();
         Staff staff=new Staff();
-        staff.setStaff_id(Integer.parseInt(request.getParameter("staff_id").trim()));
-        staff.setStaff_username(request.getParameter("staff_username"));
+        staff.setStaff_id(Integer.parseInt(request.getParameter("staff_no").trim()));
         staff.setPassword(request.getParameter("password"));
         staff.setStaff_name(request.getParameter("staff_name"));
         staff.setStaff_isdelete("0");
