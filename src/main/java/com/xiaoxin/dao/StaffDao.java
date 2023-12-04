@@ -1,5 +1,6 @@
 package com.xiaoxin.dao;
 
+import com.mysql.cj.jdbc.CallableStatement;
 import com.xiaoxin.bean.Staff;
 import com.xiaoxin.uitl.DbUtils2;
 
@@ -62,5 +63,22 @@ public class StaffDao {
         if (res > 0) {
             return "YES";
         } else return "NO";
+    }
+
+    public String deleteStaff(String staffId,String isdelete) throws SQLException {
+        Connection connection = DbUtils2.getConn();
+        System.out.println("获取到的staffid" + staffId);
+        String sql = "update staff set staff_isdelete=? where staff_id = ? ";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1, Integer.parseInt(isdelete));
+        ps.setString(2,staffId);
+        int res = ps.executeUpdate();
+        System.out.println("冻结用户的时候执行的sql：\n" + ps.toString());
+        ps.close();
+        connection.close();
+        if (res > 0) {
+            return "YES";
+        }return "NO";
+
     }
 }

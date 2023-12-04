@@ -33,7 +33,14 @@
       <td><%= sta.getStaff_username() %></td>
       <td><%= sta.getStaff_name() %></td>
       <td><%= sta.getRole() %></td>
-      <td style="width: 200px"><a href="../../StaffDeleteServlet?s_no=<%= sta.getStaff_id()%>">删除</a>   <a style="margin-left: 50px" href="StaffUpdate.jsp?n=<%=i%>">修改</a></td>
+      <td style="width: 200px">
+        <% if (sta.getStaff_isdelete().equals("0")) { %>
+        <a href="../../../../StaffDeleteServlet?s_no=<%= sta.getStaff_id() %>&div=D" style="color: red">冻结</a>
+        <% } else if (sta.getStaff_isdelete().equals("1")) { %>
+        <a href="../../../../StaffDeleteServlet?s_no=<%= sta.getStaff_id() %>&div=J">解冻</a>
+        <% } %>
+        <a style="margin-left: 50px" href="StaffUpdate.jsp?n=<%= i %>">修改</a>
+      </td>
     </tr>
     <% } %>
     </tbody>

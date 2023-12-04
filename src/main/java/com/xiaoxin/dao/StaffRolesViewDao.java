@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class StaffRolesViewDao {
     public Staff getOne(String staff_username) throws SQLException {
         Connection connection = DbUtils2.getConn();
-        String sql = "select * from staff_roles_view where staff_username=?";
+        String sql = "select * from staff_roles_view where staff_username=? and staff_isdelete=0";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, staff_username);
         ResultSet resultSet = statement.executeQuery();
@@ -38,7 +38,7 @@ public class StaffRolesViewDao {
     public ArrayList<Staff> getStaffList() throws SQLException {
         ArrayList<Staff> list = new ArrayList<Staff>();
         Connection connection = DbUtils2.getConn();
-        String sql = "SELECT * FROM staff_roles_view where staff_isdelete=0";
+        String sql = "SELECT * FROM staff_roles_view";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
