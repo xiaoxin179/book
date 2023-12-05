@@ -32,7 +32,7 @@
                 <td><%=book_view.getRecord_id()%></td>
                 <td><%= book_view.getBook_name() %></td>
                 <td><%=book_view.getUsername()%></td>
-                <td style="width: 200px"><a href="../../../../ReturnBook?book_id=<%= book_view.getBook_name()%>">还书</a>   </td>
+                <td style="width: 200px"><a href="../../../../ReturnBookServlet?record_id=<%= book_view.getRecord_id()%>">还书</a>   </td>
             </tr>
             <% } %>
             </tbody>

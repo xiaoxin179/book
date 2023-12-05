@@ -27,4 +27,18 @@ public class BookRecordDao {
             return "NO";
         }
     }
+
+    public String returnBookByRecordId(int record_id) throws SQLException {
+        Connection connection = DbUtils2.getConn();
+        String sql = "update borrow_record set is_return ='YES' where record_id=?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1, record_id);
+        int i = ps.executeUpdate();
+        if (i > 0) {
+            return "YES";
+        } else {
+            return "NO";
+        }
+
+    }
 }

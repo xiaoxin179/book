@@ -18,12 +18,12 @@
         <table class="table table-bordered table-striped ">
             <thead class="table-dark">
             <tr>
-                <th>编号</th>
-                <th>书名</th>
-                <th>分类</th>
-                <th>内容</th>
-                <th>房间</th>
-                <th>书架</th>
+                <th style="width:200px">编号</th>
+                <th style="width:300px">书名</th>
+                <th style="width:200px">分类</th>
+                <th style="width:900px">内容</th>
+                <th style="width:200px">房间</th>
+                <th style="width:200px" >书架</th>
                 <th>操作</th>
             </tr>
             </thead>
