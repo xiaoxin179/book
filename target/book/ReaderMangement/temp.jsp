@@ -11,6 +11,10 @@
     <title>读者端</title>
 </head>
 <body>
-
+<form action="../../../../GetAllServlet" method="post">
+    <button>
+        查看所有书籍
+    </button>
+</form>
 </body>
 </html>

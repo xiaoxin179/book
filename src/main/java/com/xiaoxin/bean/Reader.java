@@ -15,8 +15,6 @@ public class Reader {
     private String name;
     private int score;
     private String password;
-    private Date createTime;
-    private Date updateTime;
     private String readerEmail;
     private int readerIsDelete;
 }

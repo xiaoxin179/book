@@ -24,8 +24,6 @@ public class ReaderDao {
             reader.setReaderId(resultSet.getInt("reader_id"));
             reader.setUsername(resultSet.getString("username"));
             reader.setPassword(resultSet.getString("password"));
-            reader.setCreateTime(reader.getCreateTime());
-            reader.setUpdateTime(reader.getUpdateTime());
             reader.setReaderEmail(resultSet.getString("reader_email"));
             reader.setReaderIsDelete(resultSet.getInt("reader_isdelete"));
         }

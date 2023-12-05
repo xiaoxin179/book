@@ -4,3 +4,4 @@ LOGINPERSON：存储登录个人信息
 StaffList:存储员工信息
 State:每次增删改之后的状态信息
 RoleNameList:存储角色列表
+ReaderList:存储所有读者
