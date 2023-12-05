@@ -16,7 +16,7 @@
   staff = (Staff) session.getAttribute("LOGINPERSON");
 %>
   <div class="container" style="margin:30px auto;border-radius: 8px;height: 700px;align-items: center;display:flex;justify-content: center">
-    <form style="margin:30px auto" action="../../../../StaffUpdateServlet">
+    <form style="margin:30px auto" action="../../../../StaffUpdateThemselfServlet">
       <div class="mb-3">
         <label for="staffId" class="form-label">工作人员编号</label>
         <input type="text" class="form-control width" id="staffId" readonly value="<%=staff.getStaff_id()  %> " name="staff_id" >

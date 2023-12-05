@@ -18,24 +18,37 @@
   <ul>
     <li>
       <img src="../static/img/booklog.webp"></img>
-      <span>欢迎您</span>
+      <span>读者端</span>
     </li>
     <li>
-      <a href="../StaffMangement/temp.jsp" target="center">
+      <a href="../ReaderMangement/main.jsp" target="center">
         <i class="fa fa-home" aria-hidden="true"></i>
-        <span>员工管理</span>
+        <span>主页</span>
       </a>
     </li>
     <li>
-      <a href="../StaffMangement/StaffInsert.jsp" target="center">
+      <a href="../ReaderMangement/ReaderBorrow.jsp" target="center">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <span>借书</span>
+      </a>
+    </li>
+
+    <li >
+      <a href="../ReaderMangement/ReaderReturn.jsp" target="center">
         <i class="fa fa-sitemap" aria-hidden="true"></i>
-        <span>添加职工</span>
+        <span>还书</span>
       </a>
     </li>
-    <li>
-      <a href="../StaffMangement/StaffUpdatethemself.jsp" target="center">
+    <li >
+      <a href="../ReaderMangement/ReaderLog.jsp" target="center">
+        <i class="fa fa-sitemap" aria-hidden="true"></i>
+        <span>借阅记录</span>
+      </a>
+    </li>
+    <li onclick="change(5)">
+      <a href="../ReaderMangement/ReaderUpdatethemself.jsp" target="center">
         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-        <span>用户个人信息管理</span>
+        <span>个人信息管理</span>
       </a>
     </li>
   </ul>
@@ -66,6 +79,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .toWhite{
+    background-color:white;
   }
   #checkbox{
     display: none;
@@ -174,5 +190,9 @@
     let checkbox = document.getElementById('checkbox');
     checkbox.checked = true;
   });
+  let index=1;
+  function change(target) {
+    index=target
+  }
 </script>
 </html>
