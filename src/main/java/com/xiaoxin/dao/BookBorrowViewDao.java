@@ -1,6 +1,5 @@
 package com.xiaoxin.dao;
 
-import com.mysql.cj.jdbc.CallableStatement;
 import com.xiaoxin.bean.BookView;
 import com.xiaoxin.uitl.DbUtils2;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
  * @author:XIAOXIN
  * @date:2023/12/05
  **/
-public class BookViewDao {
+public class BookBorrowViewDao {
     public ArrayList<BookView> getAllBook() throws SQLException {
         ArrayList<BookView> list = new ArrayList<BookView>();
         Connection connection = DbUtils2.getConn();

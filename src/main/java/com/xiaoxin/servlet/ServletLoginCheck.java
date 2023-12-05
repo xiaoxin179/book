@@ -2,12 +2,10 @@ package com.xiaoxin.servlet;
 
 
 
+import com.xiaoxin.bean.BorrowRecordView;
 import com.xiaoxin.bean.Reader;
 import com.xiaoxin.bean.Staff;
-import com.xiaoxin.dao.ReaderDao;
-import com.xiaoxin.dao.RolesDao;
-import com.xiaoxin.dao.StaffDao;
-import com.xiaoxin.dao.StaffRolesViewDao;
+import com.xiaoxin.dao.*;
 
 
 import javax.servlet.*;
@@ -15,6 +13,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 @WebServlet( "/ServletLoginCheck")
 public class ServletLoginCheck extends HttpServlet {
     @Override
@@ -67,6 +67,11 @@ public class ServletLoginCheck extends HttpServlet {
                     if (password.equals(loginReader.getPassword())) {
                         sessions.setAttribute("LOGININFO", "读者的密码输入正确");
                         System.out.println("读者登录成功");
+//                        储存借阅信息
+                        BorrowReacordDao borrowReacordDao = new BorrowReacordDao();
+                        ArrayList<BorrowRecordView> allRecord = borrowReacordDao.getAllRecord();
+                        sessions.setAttribute("ReturnBook",allRecord);
+                        System.out.println("登陆的时候直接存储ReturnBook" + sessions.getAttribute("ReturnBook"));
                         response.sendRedirect("ReaderIframe/main.html");
                         sessions.setAttribute("LOGINPERSON", loginReader);
                         System.out.println("存到session中的登录读者的用户信息"+sessions.getAttribute("LOGINPERSON"));

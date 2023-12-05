@@ -11,10 +11,15 @@
     <title>读者端</title>
 </head>
 <body>
-<form action="../../../../GetAllServlet" method="post">
-    <button>
+<form action="../../../../GetAllServlet" method="post" id="myForm">
+    <button type="submit" id="submitButton">
         查看所有书籍
     </button>
 </form>
 </body>
+<script>
+    window.onload = function() {
+        document.getElementById("submitButton").click();
+    };
+</script>
 </html>

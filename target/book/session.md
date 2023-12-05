@@ -5,3 +5,5 @@ StaffList:存储员工信息
 State:每次增删改之后的状态信息
 RoleNameList:存储角色列表
 ReaderList:存储所有读者
+BookList:
+ReturnBook:一个用户的借阅信息

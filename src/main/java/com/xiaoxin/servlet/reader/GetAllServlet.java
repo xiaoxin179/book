@@ -1,11 +1,8 @@
 package com.xiaoxin.servlet.reader;
 
 import com.xiaoxin.bean.BookView;
-import com.xiaoxin.bean.Reader;
-import com.xiaoxin.bean.Staff;
-import com.xiaoxin.dao.BookViewDao;
+import com.xiaoxin.dao.BookBorrowViewDao;
 import com.xiaoxin.dao.ReaderDao;
-import com.xiaoxin.dao.StaffRolesViewDao;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,9 +23,9 @@ public class GetAllServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessions = request.getSession();
         ReaderDao dao=new ReaderDao();
-        BookViewDao bookViewDao=new BookViewDao();
+        BookBorrowViewDao bookBorrowViewDao =new BookBorrowViewDao();
         try {
-            ArrayList<BookView> bookArrayList = bookViewDao.getAllBook();
+            ArrayList<BookView> bookArrayList = bookBorrowViewDao.getAllBook();
             sessions.setAttribute("BookList",bookArrayList);
             response.sendRedirect("ReaderMangement/ReaderBorrow.jsp");
         } catch (SQLException e) {
