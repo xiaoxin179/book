@@ -7,3 +7,4 @@ RoleNameList:存储角色列表
 ReaderList:存储所有读者
 BookList:
 ReturnBook:一个用户的借阅信息
+AllBWMethod:所有借阅信息

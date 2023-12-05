@@ -32,6 +32,9 @@ public class ReturnBookServlet extends HttpServlet {
                 ArrayList<BorrowRecordView> allRecord = borrowReacordDao.getAllRecord();
 //                还书成功之后重新为session中替换值
                 sessions.setAttribute("ReturnBook", allRecord);
+//                还书成功之后修改借阅信息
+                ArrayList<BorrowRecordView> allRecordYesAndNo = borrowReacordDao.getAllRecordYesAndNo();
+                sessions.setAttribute("AllBWMethod", allRecordYesAndNo);
                 response.sendRedirect("state.jsp");
             } else {
                 sessions.setAttribute("State", "还书失败");

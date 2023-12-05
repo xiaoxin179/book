@@ -72,6 +72,9 @@ public class ServletLoginCheck extends HttpServlet {
                         ArrayList<BorrowRecordView> allRecord = borrowReacordDao.getAllRecord();
                         sessions.setAttribute("ReturnBook",allRecord);
                         System.out.println("登陆的时候直接存储ReturnBook" + sessions.getAttribute("ReturnBook"));
+//                        存储所有的借阅信息
+                        ArrayList<BorrowRecordView> allRecordYesAndNo = borrowReacordDao.getAllRecordYesAndNo();
+                        sessions.setAttribute("AllBWMethod", allRecordYesAndNo);
                         response.sendRedirect("ReaderIframe/main.html");
                         sessions.setAttribute("LOGINPERSON", loginReader);
                         System.out.println("存到session中的登录读者的用户信息"+sessions.getAttribute("LOGINPERSON"));

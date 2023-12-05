@@ -13,7 +13,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+//对借阅记录实体操作的的方法
 @WebServlet("/BorrowBook")
 public class BorrowBook extends HttpServlet {
     @Override
@@ -41,6 +41,9 @@ public class BorrowBook extends HttpServlet {
                 ArrayList<BorrowRecordView> allRecord = borrowReacordDao.getAllRecord();
 //                还书成功之后重新为session中替换值
                 sessions.setAttribute("ReturnBook", allRecord);
+//                借书成功之后修改借阅记录
+                ArrayList<BorrowRecordView> allRecordYesAndNo = borrowReacordDao.getAllRecordYesAndNo();
+                sessions.setAttribute("AllBWMethod", allRecordYesAndNo);
                 response.sendRedirect("state.jsp");
             } else {
                 sessions.setAttribute("State", "借书失败");
