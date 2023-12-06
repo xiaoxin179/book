@@ -32,7 +32,13 @@
                 <td><%=book_view.getRecord_id()%></td>
                 <td><%= book_view.getBook_name() %></td>
                 <td><%=book_view.getUsername()%></td>
-                <td><%=book_view.getIs_return()%></td>>
+                <td>
+                    <% if (book_view.getIs_return().equals("YES")) { %>
+                    <p style="color: red;font-weight: bolder">已归还</p>
+                    <% } else { %>
+                    <p style="color: blue;font-weight: bolder">未归还</p>
+                    <% } %>
+                </td>
             </tr>
             <% } %>
             </tbody>

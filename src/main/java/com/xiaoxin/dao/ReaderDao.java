@@ -23,6 +23,7 @@ public class ReaderDao {
         if(resultSet.next()) {
             reader.setReaderId(resultSet.getInt("reader_id"));
             reader.setUsername(resultSet.getString("username"));
+            reader.setName(resultSet.getString("name"));
             reader.setPassword(resultSet.getString("password"));
             reader.setReaderEmail(resultSet.getString("reader_email"));
             reader.setReaderIsDelete(resultSet.getInt("reader_isdelete"));
@@ -35,6 +36,25 @@ public class ReaderDao {
 
 
 
+
+    }
+
+    public String updateReader(Reader reader) throws SQLException {
+        Connection connection = DbUtils2.getConn();
+        String sql = "update reader set  name=? , password=? ,reader_email=? where reader_id=?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1,reader.getName() );
+        statement.setString(2, reader.getPassword());
+        statement.setString(3, reader.getReaderEmail());
+        statement.setInt(4, reader.getReaderId());
+        int res = statement.executeUpdate();
+        System.out.println("修改用户信息updateStaff时候的sql：" + statement.toString());
+        connection.close();
+        if (res > 0) {
+            return "YES";
+        } else {
+            return "NO";
+        }
 
     }
 }
