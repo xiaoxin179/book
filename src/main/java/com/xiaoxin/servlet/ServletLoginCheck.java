@@ -37,7 +37,7 @@ public class ServletLoginCheck extends HttpServlet {
             Staff loginStaff = viewDao.getOne(staff_username);
             Reader loginReader = readerDao.getOneReader(staff_username);
             RolesDao rolesDao = new RolesDao();
-//            储存工作人员列表
+//            储存角色列表
             sessions.setAttribute("RoleNameList", rolesDao.getAllRoles());
             System.out.println("查询所有的工作人员"+sessions.getAttribute("RoleNameList"));
             if (jueSe.equals("工作人员")) {

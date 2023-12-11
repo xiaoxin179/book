@@ -22,10 +22,12 @@ public class GetAllServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         HttpSession sessions = request.getSession();
+        String bookName = request.getParameter("book_name");
+        System.out.println("前端获取到的book_name:" + bookName);
         ReaderDao dao=new ReaderDao();
         BookBorrowViewDao bookBorrowViewDao =new BookBorrowViewDao();
         try {
-            ArrayList<BookView> bookArrayList = bookBorrowViewDao.getAllBook();
+            ArrayList<BookView> bookArrayList = bookBorrowViewDao.getAllBookSelect(bookName);
             sessions.setAttribute("BookList",bookArrayList);
             response.sendRedirect("ReaderMangement/ReaderBorrow.jsp");
         } catch (SQLException e) {

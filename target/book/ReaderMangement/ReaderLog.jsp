@@ -22,7 +22,8 @@
                 <th>借阅记录编号</th>
                 <th>书籍名</th>
                 <th>借阅者</th>
-                <th>是否归还</th>
+                <th>还书时间</th>
+                <th>最晚还书时间</th>
             </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                 <td><%=book_view.getRecord_id()%></td>
                 <td><%= book_view.getBook_name() %></td>
                 <td><%=book_view.getUsername()%></td>
+                <td><%=book_view.getReturn_time()%></td>
                 <td>
                     <% if (book_view.getIs_return().equals("YES")) { %>
                     <p style="color: red;font-weight: bolder">已归还</p>

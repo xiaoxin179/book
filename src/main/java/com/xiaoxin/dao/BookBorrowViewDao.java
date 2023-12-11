@@ -18,7 +18,7 @@ public class BookBorrowViewDao {
     public ArrayList<BookView> getAllBook() throws SQLException {
         ArrayList<BookView> list = new ArrayList<BookView>();
         Connection connection = DbUtils2.getConn();
-        String sql = "select * from book_view";
+        String sql = "SELECT * FROM book_view";
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet resultSet = ps.executeQuery();
         while (resultSet.next()) {
@@ -34,6 +34,27 @@ public class BookBorrowViewDao {
         }
         return list;
         }
+    public ArrayList<BookView> getAllBookSelect(String book_name) throws SQLException {
+        ArrayList<BookView> list = new ArrayList<BookView>();
+        Connection connection = DbUtils2.getConn();
+        String sql = "SELECT * FROM book_view WHERE book_name LIKE ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, "%" + book_name + "%");
+        ResultSet resultSet = ps.executeQuery();
+        System.out.println("模糊查询书籍预编译之后的sql：" + ps.toString());
+        while (resultSet.next()) {
+            BookView book_view = new BookView();
+            book_view.setBook_id(resultSet.getInt("book_id"));
+            book_view.setBook_name(resultSet.getString("book_name"));
+            book_view.setCategory_name(resultSet.getString("category_name"));
+            book_view.setBook_content(resultSet.getString("book_content"));
+            book_view.setRoom_number(resultSet.getString("room_number"));
+            book_view.setBookshelf_id(resultSet.getInt("bookshelf_id"));
+            book_view.setBook_isdelete(resultSet.getInt("book_isdelete"));
+            list.add(book_view);
+        }
+        return list;
+    }
 
 
 }

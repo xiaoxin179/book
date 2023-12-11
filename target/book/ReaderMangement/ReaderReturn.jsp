@@ -22,6 +22,7 @@
                 <th>借阅记录编号</th>
                 <th>书籍名</th>
                 <th>借阅者</th>
+                <th>最晚归还时间</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -32,6 +33,8 @@
                 <td><%=book_view.getRecord_id()%></td>
                 <td><%= book_view.getBook_name() %></td>
                 <td><%=book_view.getUsername()%></td>
+                <td><%=book_view.getReturn_time()%></td>
+
                 <td style="width: 200px"><a href="../../../../ReturnBookServlet?record_id=<%= book_view.getRecord_id()%>">还书</a>   </td>
             </tr>
             <% } %>

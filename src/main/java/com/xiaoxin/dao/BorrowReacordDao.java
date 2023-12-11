@@ -30,26 +30,11 @@ public class BorrowReacordDao {
             borrowRecordView.setUsername(resultSet.getString("username"));
             borrowRecordView.setBook_name(resultSet.getString("book_name"));
             borrowRecordView.setIs_return(resultSet.getString("is_return"));
+            borrowRecordView.setReturn_time(resultSet.getDate("return_time"));
             records.add(borrowRecordView);
         }
         return records;
     }
 
-    public ArrayList<BorrowRecordView> getAllRecordYesAndNo() throws SQLException {
-        ArrayList<BorrowRecordView> records = new ArrayList<BorrowRecordView>();
-        Connection connection = DbUtils2.getConn();
-        String sql = "SELECT * FROM borrow_view ";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()) {
-            BorrowRecordView borrowRecordView = new BorrowRecordView();
-            borrowRecordView.setRecord_id(resultSet.getInt("record_id"));
-            borrowRecordView.setRecord_readerid(resultSet.getInt("record_readerid"));
-            borrowRecordView.setUsername(resultSet.getString("username"));
-            borrowRecordView.setBook_name(resultSet.getString("book_name"));
-            borrowRecordView.setIs_return(resultSet.getString("is_return"));
-            records.add(borrowRecordView);
-        }
-        return records;
-    }
+
 }
